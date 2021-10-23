@@ -13,6 +13,7 @@ class CreateMessageService {
                 }
             })
             const infoWS = {
+                id: message.id,
                 text: message.text,
                 user_id: message.user_id,
                 created_at: message.created_at,
@@ -21,7 +22,7 @@ class CreateMessageService {
                     avatar_url: message.user.avatar_url
                 }
             }
-            io.emit("new message", infoWS)
+            io.emit("new_message", infoWS)
             return message
         } catch (err) {
             return "token expired"

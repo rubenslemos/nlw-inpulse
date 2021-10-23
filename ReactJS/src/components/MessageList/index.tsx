@@ -14,9 +14,6 @@ type Message = {
 const messagesQueue: Message[] = []
 const socket = io("http://localhost:4000")
 socket.on('new_message', (newMessage: Message) => {
-  console.log(socket)
-  console.log(newMessage)
-  console.log(messagesQueue)
   messagesQueue.push(newMessage)
 })
 export function MessageList() {
